@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Websocket Demo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex w-full h-screen">
+    <!-- Left sidebar -->
+    <aside
+      class="sticky top-0 left-0 w-72 bg-blue-900 p-6 max-sm:hidden text-gray-50"
+    >
+      <h1 class="text-xl mb-2 font-bold">FastAPI WebSocket Chat</h1>
+      <h2 class="text-base mb-8">
+        Your ID: <span id="ws-id" class="font-semibold"></span>
+      </h2>
+      <div>
+        <h3 class="text-base mb-2 font-semibold">Active users:</h3>
+        <div id="activeUsers" class="flex flex-col gap-2"></div>
+      </div>
+    </aside>
+    <main class="flex-1 flex flex-col">
+      <!-- Chat messages -->
+      <div
+        id="messages"
+        class="bg-white p-8 flex-1 overflow-y-scroll flex flex-col gap-3 break-all"
+      ></div>
+      <!-- Form -->
+      <form
+        action=""
+        onsubmit="sendMessage(event)"
+        class="sticky bottom-0 right-100 z-20 bg-gray-100 p-4 border-t border-gray-200"
+      >
+        <div class="flex items-center">
+          <input
+            type="text"
+            id="messageText"
+            placeholder="Type your message..."
+            class="flex-1 p-2 border-y border-l rounded-l-md outline-none border-gray-200 disabled:cursor-not-allowed"
+          />
+          <button
+            type="submit"
+            id="submitButton"
+            class="w-24 bg-blue-600 hover:bg-blue-900 text-white py-2 px-4 rounded-r-md border border-blue-600 hover:border-blue-900 disabled:bg-gray-400 disabled:border-gray-400 disabled:cursor-not-allowed"
+          >
+            Send
+          </button>
+        </div>
+      </form>
+    </main>
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+  </body>
+</html>
